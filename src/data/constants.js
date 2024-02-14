@@ -8,7 +8,7 @@ export const Bio = {
 		 "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
 	github: "https://github.com/VitrikushIhor",
 	resume:
-		 "https://drive.google.com/file/d/1ckXcg3Z2ABqvQIXJnBOS7dY1O5EfuZeO/view",
+		 "https://drive.google.com/file/d/1A_Cz1dRn7jIBkjIQibhUUMfy4fCumQq0/view",
 	linkedin: "https://www.linkedin.com/in/ihor-vitrykush-654b73222/",
 	telegram: "https://t.me/Nyarlathoted",
 	insta: "https://www.instagram.com/nyarlath0ted/",
