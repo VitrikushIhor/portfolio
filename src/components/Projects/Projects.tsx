@@ -1,8 +1,8 @@
 import {FC, useState} from 'react'
-import ProjectCard from '../Cards/ProjectCards/ProjectCards'
-import {projects} from '../../data/constants'
 import styles from './styles.module.scss'
-import {AppComponent} from '../../App';
+import {AppComponent} from '@/app/page';
+import {projects} from '@/data/constants';
+import ProjectCard from '@/components/Cards/ProjectCards/ProjectCards';
 
 interface InterfaceProjects {
 	openModal: AppComponent
@@ -35,13 +35,13 @@ const Projects: FC<InterfaceProjects> = ({openModal, setOpenModal}) => {
 				 </div>
 				 <div className={styles.CardContainer}>
 					 {toggle === 'all' && projects
-							.map((project) => (
-								 <ProjectCard project={project} openModal={openModal} setOpenModal={setOpenModal}/>
+							.map((project, key) => (
+								 <ProjectCard key={key} project={project} openModal={openModal} setOpenModal={setOpenModal}/>
 							))}
 					 {projects
 							.filter((item) => item.category === toggle)
-							.map((project) => (
-								 <ProjectCard project={project} openModal={openModal} setOpenModal={setOpenModal}/>
+							.map((project, index) => (
+								 <ProjectCard key={index} project={project} openModal={openModal} setOpenModal={setOpenModal}/>
 							))}
 				 </div>
 			 </div>

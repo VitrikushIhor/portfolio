@@ -1,9 +1,9 @@
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import {Bio} from '../../data/constants';
-import {Telegram} from "@mui/icons-material";
+import {Bio} from '@/data/constants';
+import {Telegram} from '@mui/icons-material';
 
-import styles from "./styles.module.scss"
+import styles from './styles.module.scss'
 
 
 function Footer() {

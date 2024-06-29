@@ -1,8 +1,8 @@
 import HeroBgAnimation from '../HeroBgAnimation'
-import HeroImg from '../../images/HeroImage.jpg'
 import Typewriter from 'typewriter-effect';
 import {Bio} from '../../data/constants';
 import styles from './styles.module.scss'
+import Image from 'next/image';
 
 const HeroSection = () => {
 	return (
@@ -30,7 +30,7 @@ const HeroSection = () => {
 						 <a className={styles.ResumeButton} href={Bio.resume} target="display">Check Resume</a>
 					 </div>
 					 <div className={styles.HeroRightContainer} id="Right">
-						 <img className={styles.Img} src={HeroImg} alt="hero-image"/>
+						 <Image width={400} height={400} className={styles.Img} src={'/HeroImage.jpg'} alt="hero-image"/>
 					 </div>
 				 </div>
 
