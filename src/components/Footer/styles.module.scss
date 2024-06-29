@@ -1,0 +1,79 @@
+.FooterContainer {
+	width: 100%;
+	padding: 2rem 0;
+	display: flex;
+	justify-content: center;
+}
+
+.FooterWrapper {
+	width: 100%;
+	max-width: 1200px;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	align-items: center;
+	padding: 1rem;
+	color: var(--text_primary);
+}
+
+.Logo {
+	font-weight: 600;
+	font-size: 20px;
+	color: var(--primary);
+}
+
+.Nav {
+	width: 100%;
+	max-width: 800px;
+	margin-top: 0.5rem;
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+	justify-content: center;
+	@media (max-width: 768px) {
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: center;
+		text-align: center;
+		font-size: 12px;
+	}
+}
+
+.NavLink {
+	color: var(--text_primary);
+	text-decoration: none;
+	font-size: 1.2rem;
+	transition: color 0.2s ease-in-out;
+
+	&:hover {
+		color: var(--primary);
+	}
+
+	@media (max-width: 768px) {
+		font-size: 1rem;
+	}
+}
+
+.SocialMediaIcons {
+	display: flex;
+	margin-top: 1rem;
+}
+
+.SocialMediaIcon {
+	display: inline-block;
+	margin: 0 1rem;
+	font-size: 1.5rem;
+	color: var(--text_primary);
+	transition: color 0.2s ease-in-out;
+
+	&:hover {
+		color: var(--primary);
+	}
+}
+
+.Copyright {
+	margin-top: 1.5rem;
+	font-size: 0.9rem;
+	color: rgb(242, 243, 244);
+	text-align: center;
+}
