@@ -3,6 +3,7 @@ import {Modal} from '@mui/material';
 import styles from './styles.module.scss'
 import {FC} from 'react';
 import {AppComponent} from '@/app/page';
+import Image from 'next/image';
 
 interface InterfaceProjectDetails {
 	openModal: AppComponent
@@ -24,12 +25,13 @@ const ProjectDetails: FC<InterfaceProjectDetails> = ({openModal, setOpenModal}) 
 							}}
 							onClick={() => setOpenModal({state: false, project: null})}
 					 />
-					 <img className={styles.Image} src={project?.image} alt={project?.title}/>
+					 <Image width={100} height={100} className={styles.Image} src={`${project?.image}`}
+					        alt={`${project?.title}`}/>
 					 <div className={styles.Title}>{project?.title}</div>
 					 <div className={styles.Date}>{project?.date}</div>
 					 <div className={styles.Tags}>
-						 {project?.tags.map((tag) => (
-								<div className={styles.Tag}>{tag}</div>
+						 {project?.tags.map((tag, index) => (
+								<div key={index} className={styles.Tag}>{tag}</div>
 						 ))}
 					 </div>
 					 <div className={styles.Desc}>{project?.description}</div>

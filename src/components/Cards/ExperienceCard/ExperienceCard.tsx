@@ -1,13 +1,14 @@
 import styles from './styles.module.scss'
 import {FC} from 'react';
 import {IExperience} from '@/data/constants';
+import Image from 'next/image';
 
 
 const ExperienceCard: FC<{ experience: IExperience }> = ({experience}) => {
 	return (
 		 <div className={styles.card}>
 			 <div className={styles.top}>
-				 <img className={styles.image} src={experience.img}/>
+				 <Image width={50} height={50} className={styles.image} src={experience.img} alt={'image'}/>
 				 <div className={styles.body}>
 					 <div className={styles.role}>{experience.role}</div>
 					 <div className={styles.company}>{experience.company}</div>
@@ -26,7 +27,7 @@ const ExperienceCard: FC<{ experience: IExperience }> = ({experience}) => {
 								<b>Skills:</b>
 								<div className={styles.itemWrapper}>
 									{experience?.skills?.map((skill, index) => (
-										 <div className={styles.skill}>• {skill}</div>
+										 <div key={index} className={styles.skill}>• {skill}</div>
 									))}
 								</div>
 							</div>

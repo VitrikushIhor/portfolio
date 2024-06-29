@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import {skills} from '@/data/constants'
 import styles from './styles.module.scss'
+import Image from 'next/image';
 
 const Skills = () => {
 	const startYear = 2021;
@@ -19,13 +20,14 @@ const Skills = () => {
 					 past {yearsProgramming} years.
 				 </div>
 				 <div className={styles.SkillsContainer}>
-					 {skills.map((skill) => (
-							<div className={styles.Skill}>
+					 {skills.map((skill, key) => (
+							<div key={key} className={styles.Skill}>
 								<h2 className={styles.SkillTitle}>{skill.title}</h2>
 								<div className={styles.SkillList}>
-									{skill.skills.map((item) => (
-										 <div className={styles.SkillItem}>
-											 <img className={styles.SkillImage} src={`${item.image}`} alt={item.name}/>
+									{skill.skills.map((item, key) => (
+										 <div key={key} className={styles.SkillItem}>
+											 <Image width={24} height={24} className={styles.SkillImage} src={`${item.image}`}
+											        alt={item.name}/>
 											 {item.name}
 										 </div>
 									))}
