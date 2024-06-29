@@ -24,8 +24,8 @@ const Skills = () => {
 							<div key={key} className={styles.Skill}>
 								<h2 className={styles.SkillTitle}>{skill.title}</h2>
 								<div className={styles.SkillList}>
-									{skill.skills.map((item, key) => (
-										 <div key={key} className={styles.SkillItem}>
+									{skill.skills.map((item, index) => (
+										 <div key={index} className={styles.SkillItem}>
 											 <Image width={24} height={24} className={styles.SkillImage} src={`${item.image}`}
 											        alt={item.name}/>
 											 {item.name}

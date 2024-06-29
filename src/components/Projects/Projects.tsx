@@ -35,8 +35,8 @@ const Projects: FC<InterfaceProjects> = ({openModal, setOpenModal}) => {
 				 </div>
 				 <div className={styles.CardContainer}>
 					 {toggle === 'all' && projects
-							.map((project, index) => (
-								 <ProjectCard key={index} project={project} openModal={openModal} setOpenModal={setOpenModal}/>
+							.map((project, key) => (
+								 <ProjectCard key={key} project={project} openModal={openModal} setOpenModal={setOpenModal}/>
 							))}
 					 {projects
 							.filter((item) => item.category === toggle)
