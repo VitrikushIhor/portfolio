@@ -1,9 +1,9 @@
-import {useEffect, useState} from 'react'
-import {skills} from '@/data/constants'
+import {FC, useEffect, useState} from 'react'
 import styles from './styles.module.scss'
 import Image from 'next/image';
+import {ISkillCategory} from '@/data/constants';
 
-const Skills = () => {
+const Skills: FC<{ skills: ISkillCategory[] }> = ({skills}) => {
 	const startYear = 2021;
 	const [yearsProgramming, setYearsProgramming] = useState<number>(0);
 
@@ -12,6 +12,7 @@ const Skills = () => {
 		const years = currentYear - startYear;
 		setYearsProgramming(years);
 	}, []);
+
 	return (
 		 <div className={styles.Container} id="skills">
 			 <div className={styles.Wrapper}>
@@ -20,7 +21,7 @@ const Skills = () => {
 					 past {yearsProgramming} years.
 				 </div>
 				 <div className={styles.SkillsContainer}>
-					 {skills.map((skill, key) => (
+					 {skills?.map((skill, key) => (
 							<div key={key} className={styles.Skill}>
 								<h2 className={styles.SkillTitle}>{skill.title}</h2>
 								<div className={styles.SkillList}>

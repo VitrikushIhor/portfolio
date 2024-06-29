@@ -1,16 +1,17 @@
 import {FC, useState} from 'react'
 import styles from './styles.module.scss'
-import {AppComponent} from '@/app/page';
-import {projects} from '@/data/constants';
 import ProjectCard from '@/components/Cards/ProjectCards/ProjectCards';
+import {AppComponent} from '@/components/Wrapper/Wrapper';
+import {IProject} from '@/data/constants';
 
 interface InterfaceProjects {
 	openModal: AppComponent
 	setOpenModal: (openModal: AppComponent) => void
+	projects: IProject[]
 }
 
 
-const Projects: FC<InterfaceProjects> = ({openModal, setOpenModal}) => {
+const Projects: FC<InterfaceProjects> = ({openModal, setOpenModal, projects}) => {
 	const [toggle, setToggle] = useState('all');
 	return (
 		 <div className={styles.Container} id="projects">
@@ -35,12 +36,12 @@ const Projects: FC<InterfaceProjects> = ({openModal, setOpenModal}) => {
 				 </div>
 				 <div className={styles.CardContainer}>
 					 {toggle === 'all' && projects
-							.map((project, key) => (
+							?.map((project, key) => (
 								 <ProjectCard key={key} project={project} openModal={openModal} setOpenModal={setOpenModal}/>
 							))}
 					 {projects
-							.filter((item) => item.category === toggle)
-							.map((project, index) => (
+							?.filter((item) => item.category === toggle)
+							?.map((project, index) => (
 								 <ProjectCard key={index} project={project} openModal={openModal} setOpenModal={setOpenModal}/>
 							))}
 				 </div>

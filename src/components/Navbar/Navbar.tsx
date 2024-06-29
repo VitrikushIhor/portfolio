@@ -1,10 +1,10 @@
-import {useState} from 'react'
+import {FC, useState} from 'react'
 import {DiCssdeck} from 'react-icons/di';
 import {FaBars} from 'react-icons/fa';
-import {Bio} from '@/data/constants';
 import styles from './styles.module.scss'
+import {IBio} from '@/data/constants';
 
-const Navbar = () => {
+const Navbar: FC<{ bio: IBio }> = ({bio}) => {
 	const [isOpen, setIsOpen] = useState(false);
 	return (
 		 <nav className={styles.Nav}>
@@ -25,7 +25,7 @@ const Navbar = () => {
 					 <a className={styles.NavLink} href="#projects">Projects</a>
 				 </ul>
 				 <div className={styles.ButtonContainer}>
-					 <a className={styles.GitHubButton} href={Bio.github} target="_blank">Github Profile</a>
+					 <a className={styles.GitHubButton} href={bio?.github} target="_blank">Github Profile</a>
 				 </div>
 				 {
 						isOpen &&
@@ -46,7 +46,7 @@ const Navbar = () => {
 								   color: 'white',
 								   width: 'max-content',
 							   }}
-							   href={Bio.github} target="_blank">Github Profile</a>
+							   href={bio?.github} target="_blank">Github Profile</a>
 						</div>
 				 }
 			 </div>

@@ -29,6 +29,25 @@ export interface IExperience {
 	skills: string[];
 }
 
+export interface IProject {
+	id: number;
+	title: string;
+	date: string;
+	description: string;
+	image: string;
+	tags: string[];
+	category: string;
+	github?: string;
+	webapp?: string;
+}
+
+export interface InterfaceProject {
+	Bio: IBio
+	skills: ISkillCategory[]
+	experiences: IExperience[]
+	projects: IProject[]
+}
+
 export const Bio: IBio = {
 	name: 'Ihor Vitrikush',
 	roles: [
@@ -190,7 +209,6 @@ export const skills: ISkillCategory[] = [
 	},
 ];
 
-
 export const experiences: IExperience[] = [
 	{
 		id: 0,
@@ -242,18 +260,6 @@ export const experiences: IExperience[] = [
 		],
 	},
 ];
-
-export interface IProject {
-	id: number;
-	title: string;
-	date: string;
-	description: string;
-	image: string;
-	tags: string[];
-	category: string;
-	github?: string;
-	webapp?: string;
-}
 
 export const projects: IProject[] = [
 	{

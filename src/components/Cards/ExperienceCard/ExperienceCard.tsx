@@ -8,11 +8,11 @@ const ExperienceCard: FC<{ experience: IExperience }> = ({experience}) => {
 	return (
 		 <div className={styles.card}>
 			 <div className={styles.top}>
-				 <Image width={50} height={50} className={styles.image} src={experience.img} alt={'image'}/>
+				 <Image width={50} height={50} className={styles.image} src={experience?.img} alt={'image'}/>
 				 <div className={styles.body}>
-					 <div className={styles.role}>{experience.role}</div>
-					 <div className={styles.company}>{experience.company}</div>
-					 <div className={styles.date}>{experience.date}</div>
+					 <div className={styles.role}>{experience?.role}</div>
+					 <div className={styles.company}>{experience?.company}</div>
+					 <div className={styles.date}>{experience?.date}</div>
 				 </div>
 			 </div>
 			 <div className={styles.description}>
