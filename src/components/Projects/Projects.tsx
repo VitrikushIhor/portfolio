@@ -1,8 +1,8 @@
 import {FC, useState} from 'react'
-import ProjectCard from '../Cards/ProjectCards/ProjectCards'
-import {projects} from '../../data/constants'
 import styles from './styles.module.scss'
-import {AppComponent} from '../../App';
+import {AppComponent} from '@/app/page';
+import {projects} from '@/data/constants';
+import ProjectCard from '@/components/Cards/ProjectCards/ProjectCards';
 
 interface InterfaceProjects {
 	openModal: AppComponent

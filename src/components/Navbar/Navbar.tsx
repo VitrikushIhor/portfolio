@@ -1,20 +1,19 @@
 import {useState} from 'react'
 import {DiCssdeck} from 'react-icons/di';
 import {FaBars} from 'react-icons/fa';
-import {Bio} from '../../data/constants';
+import {Bio} from '@/data/constants';
 import styles from './styles.module.scss'
-import {Link} from 'react-router-dom';
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	return (
 		 <nav className={styles.Nav}>
 			 <div className={styles.NavbarContainer}>
-				 <Link className={styles.NavLogo} to="/">
-					 <a style={{display: 'flex', alignItems: 'center', color: 'white', marginBottom: '20;', cursor: 'pointer'}}>
+				 <div className={styles.NavLogo}>
+					 <a style={{display: 'flex', alignItems: 'center', color: 'white', marginBottom: '20', cursor: 'pointer'}}>
 						 <DiCssdeck size="3rem"/> <span className={styles.Span}>Portfolio</span>
 					 </a>
-				 </Link>
+				 </div>
 				 <div className={styles.MobileIcon}>
 					 <FaBars onClick={() => {
 						 setIsOpen(!isOpen)

@@ -2,7 +2,7 @@ import {CloseRounded} from '@mui/icons-material';
 import {Modal} from '@mui/material';
 import styles from './styles.module.scss'
 import {FC} from 'react';
-import {AppComponent} from '../../App';
+import {AppComponent} from '@/app/page';
 
 interface InterfaceProjectDetails {
 	openModal: AppComponent

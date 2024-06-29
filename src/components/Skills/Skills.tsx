@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import {skills} from '../../data/constants'
+import {skills} from '@/data/constants'
 import styles from './styles.module.scss'
 
 const Skills = () => {

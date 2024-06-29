@@ -1,6 +1,6 @@
 import styles from './styles.module.scss'
 import {FC} from 'react';
-import {IExperience} from '../../../data/constants';
+import {IExperience} from '@/data/constants';
 
 
 const ExperienceCard: FC<{ experience: IExperience }> = ({experience}) => {
