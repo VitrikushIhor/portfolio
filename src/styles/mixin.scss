@@ -1,4 +1,4 @@
-@import "variables";
+@import "media";
 
 @mixin media640 {
 	@media screen and (max-width: $media-sm) {
