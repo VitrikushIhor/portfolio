@@ -1,0 +1,150 @@
+.table {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #9c27b0;
+	border-left: none;
+	border-right: none;
+}
+
+.tableHead {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 16px;
+	color: var(--text_primary99);
+	padding: 15px 10px;
+
+	.headRow {
+		width: 100%;
+	}
+}
+
+
+.tableBody {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: column;
+
+	.bodyCol {
+		width: 100%;
+		gap: 10px;
+		display: flex;
+		border-bottom: 1px solid rebeccapurple;
+		border-top: 1px solid rebeccapurple;
+		cursor: pointer;
+		transition: all 0.3s ease-in-out;
+		padding: 0 10px;
+
+		&:hover {
+			background-color: var(--primary20);
+		}
+	}
+
+	.bodyRow {
+		padding: 20px 0;
+		width: 100%;
+		color: var(--white);
+	}
+}
+
+.container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+}
+
+.header {
+	font-size: 16px;
+	color: var(--text_primary99);
+	margin-bottom: 10px;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	border-bottom: 1px solid rebeccapurple;
+	border-top: 1px solid rebeccapurple;
+	transition: all 0.3s ease-in-out;
+}
+
+.title {
+	width: 100%;
+	gap: 10px;
+	display: flex;
+	cursor: pointer;
+	padding: 10px 0;
+	color: var(--white);
+	font-size: 16px;
+
+	&:hover {
+		background-color: var(--primary20);
+	}
+}
+
+
+.headContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: var(--white);
+	font-size: 15px;
+	margin: 20px 0;
+
+	&__name {
+	}
+
+	&__image {
+	}
+
+	&__actions {
+	}
+}
+
+.skillsContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.skillContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid rebeccapurple;
+	border-top: 1px solid rebeccapurple;
+	transition: all 0.3s ease-in-out;
+	padding: 10px 0;
+	color: white;
+	font-size: 14px;
+
+	&:hover {
+		background-color: var(--primary20);
+	}
+}
+
+.name {
+}
+
+.image {
+}
+
+.actions {
+	display: flex;
+	gap: 10px;
+
+	&__image {
+		cursor: pointer;
+		width: 25px;
+		height: 25px;
+		color: var(--primary);
+		transition: all 0.3s ease-in-out;
+
+		&:hover {
+			color: rebeccapurple;
+		}
+	}
+}
+

@@ -1,12 +1,12 @@
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import {Telegram} from '@mui/icons-material';
+// import LinkedInIcon from '@mui/icons-material/LinkedIn';
+// import InstagramIcon from '@mui/icons-material/Instagram';
+// import {Telegram} from '@mui/icons-material';
 
 import styles from './styles.module.scss'
 import {FC} from 'react';
-import {IBio} from '@/data/constants';
+import {InterfaceBio} from '@/types/bio.interface';
 
-const Footer: FC<{ bio: IBio }> = ({bio}) => {
+const Footer: FC<{ bio: InterfaceBio }> = ({bio}) => {
 	const currentYear = new Date().getFullYear();
 	return (
 		 <div className={styles.FooterContainer}>
@@ -18,9 +18,9 @@ const Footer: FC<{ bio: IBio }> = ({bio}) => {
 					 <a className={styles.NavLink} href="#projects">Projects</a>
 				 </nav>
 				 <div className={styles.SocialMediaIcons}>
-					 <a className={styles.SocialMediaIcon} href={bio?.telegram} target="display"><Telegram/></a>
-					 <a className={styles.SocialMediaIcon} href={bio?.linkedin} target="display"><LinkedInIcon/></a>
-					 <a className={styles.SocialMediaIcon} href={bio?.insta} target="display"><InstagramIcon/></a>
+					 {/*<a className={styles.SocialMediaIcon} href={bio?.telegram} target="display"><Telegram/></a>*/}
+					 {/*<a className={styles.SocialMediaIcon} href={bio?.linkedin} target="display"><LinkedInIcon/></a>*/}
+					 {/*<a className={styles.SocialMediaIcon} href={bio?.insta} target="display"><InstagramIcon/></a>*/}
 				 </div>
 				 <p className={styles.Copyright}>
 					 &copy; {currentYear} Ihor Vitrikush. All rights reserved.

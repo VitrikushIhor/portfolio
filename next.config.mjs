@@ -41,7 +41,14 @@ const nextConfig = {
 			protocol: 'https', hostname: 'assets.vercel.com', port: '', pathname: '/**',
 		}, {
 			protocol: 'https', hostname: 'github.com', port: '', pathname: '/**',
-		}],
+		},
+			{
+				protocol: 'https', hostname: 'cloudinary.com', port: '', pathname: '/**',
+			},
+			{
+				protocol: 'https', hostname: 'res.cloudinary.com', port: '', pathname: '/**',
+			}
+		],
 	},
 };
 

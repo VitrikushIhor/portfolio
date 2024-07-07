@@ -1,0 +1,29 @@
+.inputWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.text {
+	font-size: 14px;
+	color: var(--white);
+}
+
+.input {
+	padding: 10px 10px 10px 4px;
+	font-size: 14px;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid var(--primary);
+	color: var(--white);
+
+
+	&::placeholder {
+		color: var(--text_primary);;
+	}
+
+	&:focus {
+		outline: none;
+		border-bottom: 1px solid rebeccapurple;
+	}
+}

@@ -1,0 +1,44 @@
+.modalOverlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modalContent {
+	background-color: var(--primary20);
+	padding: 20px;
+	border-radius: 10px;
+	width: 400px;
+	max-width: 90%;
+	border: 1px solid rebeccapurple;
+	box-shadow: rgba(23, 92, 230, 0.15) 1px 4px 24px;
+	color: var(--white);
+
+	&_title {
+		text-align: center;
+	}
+
+	&_desc {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 14px;
+		margin: 10px 0;
+	}
+}
+
+.modalActions {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+
+
+.upload {
+	margin-top: 20px;
+	font-size: 17px;
+	cursor: pointer;
+}

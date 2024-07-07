@@ -58,4 +58,55 @@
 	align-items: center;
 	justify-content: center;
 	gap: 12px;
+
+
+}
+
+.timeline {
+	position: relative;
+
+	&::after {
+		content: "";
+		position: absolute;
+		width: 2px;
+		height: 100%;
+		background: #854CE6;
+		top: 0;
+		left: 0;
+		margin-left: -1px;
+		z-index: -1;
+	}
+}
+
+.timelineContainer {
+	padding: 10px 50px;
+	position: relative;
+	width: 50%;
+
+	.image {
+		position: absolute;
+		width: 40px;
+		border-radius: 50%;
+		left: -20px;
+		z-index: 10;
+		top: 50%;
+		border: 2px solid #9c27b0;
+	}
+}
+
+
+.line {
+	background: #9c27b0;
+	height: 1.5px;
+	width: 8%;
+	position: absolute;
+	top: 58%;
+	left: 0;
+	z-index: -20;
+	margin-left: 20px;
+	@media (max-width: 768px) {
+		top: 57%;
+		width: 15%;
+
+	}
 }

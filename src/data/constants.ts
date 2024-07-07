@@ -1,57 +1,22 @@
-export interface IBio {
-	name: string;
-	roles: string[];
-	description: string;
-	github: string;
-	resume: string;
-	linkedin: string;
-	telegram: string;
-	insta: string;
+import {InterfaceBio} from '@/types/bio.interface';
+import {InterfaceSkillCategory} from '@/types/skillCategory.interface';
+import {InterfaceExperience} from '@/types/experience.interface';
+import {InterfaceProject} from '@/types/project.interface';
+
+
+export interface InterfaceProjectData {
+	Bio: InterfaceBio
+	skills: InterfaceSkillCategory[]
+	experiences: InterfaceExperience[]
+	projects: InterfaceProject[]
 }
 
-export interface ISkill {
-	name: string;
-	image: string;
-}
-
-export interface ISkillCategory {
-	title: string;
-	skills: ISkill[];
-}
-
-export interface IExperience {
-	id: number;
-	img: string;
-	role: string;
-	company: string;
-	date: string;
-	desc: string;
-	skills: string[];
-}
-
-export interface IProject {
-	id: number;
-	title: string;
-	date: string;
-	description: string;
-	image: string;
-	tags: string[];
-	category: string;
-	github?: string;
-	webapp?: string;
-}
-
-export interface InterfaceProject {
-	Bio: IBio
-	skills: ISkillCategory[]
-	experiences: IExperience[]
-	projects: IProject[]
-}
-
-export const Bio: IBio = {
+export const Bio: InterfaceBio = {
 	name: 'Ihor Vitrikush',
 	roles: [
+		//  @ts-ignore
 		'Frontend Developer',
+		//  @ts-ignore
 		'Full-Stack Developer',
 	],
 	description:
@@ -61,10 +26,9 @@ export const Bio: IBio = {
 		 'https://drive.google.com/file/d/1GSIAcV6ULL1jHWnBrguq6cLkh5mm47VK/view',
 	linkedin: 'https://www.linkedin.com/in/ihor-vitrykush-654b73222/',
 	telegram: 'https://t.me/Nyarlathoted',
-	insta: 'https://www.instagram.com/nyarlath0ted/',
 };
 
-export const skills: ISkillCategory[] = [
+export const skills: InterfaceSkillCategory[] = [
 	{
 		title: 'Frontend',
 		skills: [
@@ -209,7 +173,7 @@ export const skills: ISkillCategory[] = [
 	},
 ];
 
-export const experiences: IExperience[] = [
+export const experiences: InterfaceExperience[] = [
 	{
 		id: 0,
 		img: 'https://uploads.turbologo.com/uploads/design/hq_preview_image/1699234/draw_svg20210507-22909-104n0ra.svg.png',
@@ -261,7 +225,7 @@ export const experiences: IExperience[] = [
 	},
 ];
 
-export const projects: IProject[] = [
+export const projects: InterfaceProject[] = [
 	{
 		id: 1,
 		title: 'Online Cinema',

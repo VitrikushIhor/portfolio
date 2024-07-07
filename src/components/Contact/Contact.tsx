@@ -1,7 +1,6 @@
 import {useRef, useState} from 'react';
 import emailjs from '@emailjs/browser';
-import {Alert, Snackbar} from '@mui/material';
-
+// import {Alert, Snackbar} from '@mui/material';
 import styles from './styles.module.scss'
 
 
@@ -36,16 +35,16 @@ const Contact = () => {
 				<textarea className={styles.contactInputMessage} placeholder="Message" rows={4} name="message"/>
 				<input className={styles.contactButton} type="submit" value="Send"/>
 			</form>
-			<Snackbar open={open} autoHideDuration={6000} onClose={() => setOpen(false)}>
-				<Alert
-					 onClose={() => setOpen(false)}
-					 severity="success"
-					 variant="filled"
-					 sx={{width: '100%'}}
-				>
-					Email sent successfully!
-				</Alert>
-			</Snackbar>
+			{/*<Snackbar open={open} autoHideDuration={6000} onClose={() => setOpen(false)}>*/}
+			{/*	<Alert*/}
+			{/*		 onClose={() => setOpen(false)}*/}
+			{/*		 severity="success"*/}
+			{/*		 variant="filled"*/}
+			{/*		 sx={{width: '100%'}}*/}
+			{/*	>*/}
+			{/*		Email sent successfully!*/}
+			{/*	</Alert>*/}
+			{/*</Snackbar>*/}
 		</div>
 	</div>);
 };

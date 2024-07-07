@@ -1,10 +1,10 @@
 import styles from './styles.module.scss'
 import {FC} from 'react';
-import {IExperience} from '@/data/constants';
 import Image from 'next/image';
+import {InterfaceExperience} from '@/types/experience.interface';
 
 
-const ExperienceCard: FC<{ experience: IExperience }> = ({experience}) => {
+const ExperienceCard: FC<{ experience: InterfaceExperience }> = ({experience}) => {
 	return (
 		 <div className={styles.card}>
 			 <div className={styles.top}>
@@ -16,23 +16,21 @@ const ExperienceCard: FC<{ experience: IExperience }> = ({experience}) => {
 				 </div>
 			 </div>
 			 <div className={styles.description}>
-				 {experience?.desc &&
-						<span className={styles.span}>{experience?.desc}</span>
+				 <span className={styles.span}>
+					 {experience?.desc}
+				 </span>
 
-				 }
-				 {experience?.skills &&
-						<>
-							<br/>
-							<div className={styles.skills}>
-								<b>Skills:</b>
-								<div className={styles.itemWrapper}>
-									{experience?.skills?.map((skill, index) => (
-										 <div key={index} className={styles.skill}>• {skill}</div>
-									))}
-								</div>
-							</div>
-						</>
-				 }
+				 <>
+					 <br/>
+					 <div className={styles.skills}>
+						 <b>Skills:</b>
+						 <div className={styles.itemWrapper}>
+							 {experience?.skills?.map((skill, index) => (
+									<div key={index} className={styles.skill}>• {skill}</div>
+							 ))}
+						 </div>
+					 </div>
+				 </>
 			 </div>
 		 </div>
 	)

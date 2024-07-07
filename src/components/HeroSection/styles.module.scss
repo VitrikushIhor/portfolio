@@ -20,7 +20,7 @@
 .HeroBg {
 	position: absolute;
 	display: flex;
-	justify-content: end;
+	justify-content: flex-end;
 	right: 0;
 	bottom: 0;
 	width: 100%;
@@ -75,7 +75,7 @@
 	width: 100%;
 	display: flex;
 	order: 2;
-	justify-content: end;
+	justify-content: flex-end;
 	gap: 12px;
 	@media (max-width: 960px) {
 		order: 1;

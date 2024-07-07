@@ -1,15 +1,10 @@
-import Timeline from '@mui/lab/Timeline';
-import TimelineItem from '@mui/lab/TimelineItem';
-import TimelineSeparator from '@mui/lab/TimelineSeparator';
-import TimelineConnector from '@mui/lab/TimelineConnector';
-import TimelineContent from '@mui/lab/TimelineContent';
-import TimelineDot from '@mui/lab/TimelineDot';
 import styles from './styles.module.scss'
-import ExperienceCard from '@/components/Cards/ExperienceCard/ExperienceCard';
 import {FC} from 'react';
-import {IExperience} from '@/data/constants';
+import {InterfaceExperience} from '@/types/experience.interface';
+import Image from 'next/image';
+import ExperienceCard from '@/components/Cards/ExperienceCard/ExperienceCard';
 
-const Experience: FC<{ experiences: IExperience[] }> = ({experiences}) => {
+const Experience: FC<{ experiences: InterfaceExperience[] }> = ({experiences}) => {
 	return (
 		 <div className={styles.container} id="experience">
 			 <div className={styles.Wrapper}>
@@ -18,19 +13,17 @@ const Experience: FC<{ experiences: IExperience[] }> = ({experiences}) => {
 					 My work experience as a software engineer and working on different companies and projects.
 				 </div>
 				 <div className={styles.TimelineSection}>
-					 <Timeline>
+
+					 <div className={styles.timeline}>
 						 {experiences?.map((experience, index) => (
-								<TimelineItem key={index}>
-									<TimelineSeparator>
-										<TimelineDot variant="outlined" color="secondary"/>
-										{index !== experiences?.length - 1 && <TimelineConnector style={{background: '#854CE6'}}/>}
-									</TimelineSeparator>
-									<TimelineContent sx={{py: '12px', px: 2}}>
-										<ExperienceCard experience={experience}/>
-									</TimelineContent>
-								</TimelineItem>
+								<div className={styles.timelineContainer}>
+									<Image width={40} height={40} className={styles.image} src={experience.img} alt={experience.company}/>
+									<ExperienceCard experience={experience}/>
+									<span className={styles.line}></span>
+								</div>
 						 ))}
-					 </Timeline>
+
+					 </div>
 
 				 </div>
 			 </div>
