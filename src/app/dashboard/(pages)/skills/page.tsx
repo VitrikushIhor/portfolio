@@ -8,6 +8,7 @@ import {useGetSkillsQuery} from '@/app/dashboard/(pages)/skills/api/getSkills';
 import {useRemoveSkillMutation} from '@/app/dashboard/(pages)/skills/api/deleteSkill';
 import {InterfaceSkill} from '@/types/skill.interface';
 import SkillModal from '@/app/dashboard/(pages)/skills/ui/skillModal/SkillModal';
+import {IoIosArrowDown, IoMdAdd} from 'react-icons/io';
 
 export default function Skills() {
 	const {data, isLoading, isError} = useGetSkillsQuery()
@@ -23,10 +24,17 @@ export default function Skills() {
 	}
 	return (
 		 <div className={styles.container}>
-			 <h2>skillCategory</h2>
+
+			 <div className={styles.headerContainer}>
+				 <h2>SkillCategory</h2>
+				 <IoMdAdd className={styles.img}/>
+			 </div>
 			 {data?.map(item => (
 					<div className={styles.wrapper}>
-						<div className={styles.title} onClick={() => setOpen(!open)}>{item.title}</div>
+						<div onClick={() => setOpen(!open)} className={styles.title}>
+							<div>{item.title}</div>
+							<IoIosArrowDown className={styles.img}/>
+						</div>
 						{open &&
 							 <div className={styles.mainWrapper}>
 								 <div className={styles.headContainer}>
