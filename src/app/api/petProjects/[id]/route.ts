@@ -2,7 +2,12 @@ import connectDB from '@/backend/config/database';
 import {NextResponse} from 'next/server';
 import Projects from '@/backend/models/projects/projectsModel';
 import {cloudinaryService} from '@/backend/service/cloudinary.service';
-import Experience from '@/backend/models/expirience/expirienceModel';
+
+// export const segmentConfig = {
+// 	api: {
+// 		bodyParser: false,
+// 	},
+// };
 
 export async function DELETE(req: Request) {
 	await connectDB();

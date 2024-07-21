@@ -1,11 +1,11 @@
 import styles from './styles.module.scss'
-import {IProject} from '@/data/constants';
 import {FC} from 'react';
 import Image from 'next/image';
 import {AppComponent} from '@/components/Wrapper/Wrapper';
+import {InterfaceProject} from '@/types/project.interface';
 
 interface IProjectCards {
-	project: IProject
+	project: InterfaceProject
 	setOpenModal: (openModal: AppComponent) => void
 	openModal: AppComponent
 }

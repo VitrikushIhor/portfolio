@@ -16,7 +16,7 @@ const Experience: FC<{ experiences: InterfaceExperience[] }> = ({experiences}) =
 
 					 <div className={styles.timeline}>
 						 {experiences?.map((experience, index) => (
-								<div className={styles.timelineContainer}>
+								<div key={index} className={styles.timelineContainer}>
 									<Image width={40} height={40} className={styles.image} src={experience.img} alt={experience.company}/>
 									<ExperienceCard experience={experience}/>
 									<span className={styles.line}></span>

@@ -34,7 +34,7 @@ export default function Skills() {
 				 <IoMdAdd onClick={() => setCreateSkill(!createSkill)} className={styles.img}/>
 			 </div>
 			 {data?.map(item => (
-					<div className={styles.wrapper}>
+					<div key={item._id} className={styles.wrapper}>
 						<div className={styles.titleWrapper}>
 							<div onClick={() => setOpen(!open)} className={styles.title}>
 								<div>{item.title}</div>
@@ -57,8 +57,8 @@ export default function Skills() {
 									 <div className={styles.headContainer__actions}>Actions</div>
 								 </div>
 								 <div className={styles.skillsContainer}>
-									 {item.skills.map(skill => (
-											<Skill skill={skill}/>
+									 {item.skills.map((skill, index) => (
+											<Skill key={index} skill={skill}/>
 									 ))}
 								 </div>
 							 </div>}

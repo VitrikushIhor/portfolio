@@ -3,9 +3,9 @@ import Typewriter from 'typewriter-effect';
 import styles from './styles.module.scss'
 import Image from 'next/image';
 import {FC} from 'react';
-import {IBio} from '@/data/constants';
+import {InterfaceBio} from '@/types/bio.interface';
 
-const HeroSection: FC<{ bio: IBio }> = ({bio}) => {
+const HeroSection: FC<{ bio: InterfaceBio }> = ({bio}) => {
 	return (
 		 <div id="about">
 			 <div className={styles.HeroContainer}>
@@ -20,6 +20,7 @@ const HeroSection: FC<{ bio: IBio }> = ({bio}) => {
 							 <span className={styles.Span}>
 								 <Typewriter
 									  options={{
+										  // @ts-ignore
 										  strings: bio?.roles,
 										  autoStart: true,
 										  loop: true,

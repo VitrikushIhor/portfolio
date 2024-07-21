@@ -2,14 +2,12 @@ import {NextResponse} from 'next/server';
 import {cloudinaryService} from '@/backend/service/cloudinary.service';
 import Experience from '@/backend/models/expirience/expirienceModel';
 import connectDB from '@/backend/config/database';
-import SkillCategory from '@/backend/models/skillCategory/skillCategoryModel';
 
-// Disable body parsing to handle raw requests
-export const config = {
-	api: {
-		bodyParser: false,
-	},
-};
+// export const segmentConfig = {
+// 	api: {
+// 		bodyParser: false,
+// 	},
+// };
 
 export async function POST(req: Request): Promise<NextResponse> {
 	await connectDB();
@@ -23,7 +21,7 @@ export async function POST(req: Request): Promise<NextResponse> {
 		const dateEnd = formData.get('dateEnd') as string;
 		const desc = formData.get('desc') as string;
 		const skills = formData.get('skills') as string;
-		const location = formData.get('skills') as string;
+		const location = formData.get('location') as string;
 
 		if (!img || !role || !company || !dateEnd || !desc || !dateStart || !location || !skills) {
 			return NextResponse.json({error: 'All fields need fill'}, {status: 400});

@@ -3,12 +3,11 @@ import {cloudinaryService} from '@/backend/service/cloudinary.service';
 import connectDB from '@/backend/config/database';
 import Skill from '@/backend/models/skillCategory/skillModel';
 
-// Disable body parsing to handle raw requests
-export const config = {
-	api: {
-		bodyParser: false,
-	},
-};
+// export const segmentConfig = {
+// 	api: {
+// 		bodyParser: false,
+// 	},
+// };
 
 export async function POST(req: Request): Promise<NextResponse> {
 	try {

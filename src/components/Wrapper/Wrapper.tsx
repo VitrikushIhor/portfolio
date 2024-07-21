@@ -9,15 +9,16 @@ import Contact from '@/components/Contact/Contact';
 import Footer from '@/components/Footer/Footer';
 import ProjectDetails from '@/components/ProjectDetails/ProjectDetails';
 import {useState} from 'react';
-import {InterfaceProject, IProject} from '@/data/constants';
+import {InterfaceProject} from '@/types/project.interface';
+import {InterfaceProjectData} from '@/data/constants';
 
 export interface AppComponent {
-	project: IProject | null
+	project: InterfaceProject | null
 	state: boolean
 }
 
 interface Interfacedata {
-	data: InterfaceProject
+	data: InterfaceProjectData
 }
 
 export default function Wrapper({data}: Interfacedata) {

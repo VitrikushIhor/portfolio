@@ -11,7 +11,7 @@ export interface InterfaceProjectData {
 	projects: InterfaceProject[]
 }
 
-export const Bio: InterfaceBio = {
+export const Bio = {
 	name: 'Ihor Vitrikush',
 	roles: [
 		//  @ts-ignore
@@ -28,7 +28,7 @@ export const Bio: InterfaceBio = {
 	telegram: 'https://t.me/Nyarlathoted',
 };
 
-export const skills: InterfaceSkillCategory[] = [
+export const skills = [
 	{
 		title: 'Frontend',
 		skills: [
@@ -173,7 +173,7 @@ export const skills: InterfaceSkillCategory[] = [
 	},
 ];
 
-export const experiences: InterfaceExperience[] = [
+export const experiences = [
 	{
 		id: 0,
 		img: 'https://uploads.turbologo.com/uploads/design/hq_preview_image/1699234/draw_svg20210507-22909-104n0ra.svg.png',
@@ -225,7 +225,7 @@ export const experiences: InterfaceExperience[] = [
 	},
 ];
 
-export const projects: InterfaceProject[] = [
+export const projects = [
 	{
 		id: 1,
 		title: 'Online Cinema',

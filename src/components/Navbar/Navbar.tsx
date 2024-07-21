@@ -2,9 +2,9 @@ import {FC, useState} from 'react'
 import {DiCssdeck} from 'react-icons/di';
 import {FaBars} from 'react-icons/fa';
 import styles from './styles.module.scss'
-import {IBio} from '@/data/constants';
+import {InterfaceBio} from '@/types/bio.interface';
 
-const Navbar: FC<{ bio: IBio }> = ({bio}) => {
+const Navbar: FC<{ bio: InterfaceBio }> = ({bio}) => {
 	const [isOpen, setIsOpen] = useState(false);
 	return (
 		 <nav className={styles.Nav}>

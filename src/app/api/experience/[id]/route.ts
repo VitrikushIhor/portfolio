@@ -3,11 +3,11 @@ import connectDB from '@/backend/config/database';
 import Experience from '@/backend/models/expirience/expirienceModel';
 import {cloudinaryService} from '@/backend/service/cloudinary.service';
 
-export const config = {
-	api: {
-		bodyParser: false,
-	},
-};
+// export const segmentConfig = {
+// 	api: {
+// 		bodyParser: false,
+// 	},
+// };
 
 export async function PATCH(req: Request): Promise<NextResponse> {
 	try {
@@ -24,7 +24,7 @@ export async function PATCH(req: Request): Promise<NextResponse> {
 		const dateEnd = formData.get('dateEnd') as string;
 		const desc = formData.get('desc') as string;
 		const skills = formData.get('skills') as string;
-		const location = formData.get('skills') as string;
+		const location = formData.get('location') as string;
 
 		if (!img || !role || !company || !dateEnd || !desc || !dateStart || !location || !skills) {
 			return NextResponse.json({error: 'All fields need fill'}, {status: 400});

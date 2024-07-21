@@ -1,9 +1,9 @@
 import {FC, useEffect, useState} from 'react'
 import styles from './styles.module.scss'
 import Image from 'next/image';
-import {ISkillCategory} from '@/data/constants';
+import {InterfaceSkillCategory} from '@/types/skillCategory.interface';
 
-const Skills: FC<{ skills: ISkillCategory[] }> = ({skills}) => {
+const Skills: FC<{ skills: InterfaceSkillCategory[] }> = ({skills}) => {
 	const startYear = 2021;
 	const [yearsProgramming, setYearsProgramming] = useState<number>(0);
 

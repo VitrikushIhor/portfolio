@@ -1,16 +1,13 @@
 import {NextResponse} from 'next/server';
 import connectDB from '@/backend/config/database';
 import Skill from '@/backend/models/skillCategory/skillModel';
-import {Request} from 'express';
-import {cloudinaryService} from '@/backend/service/cloudinary.service'; // Підключення типів для запиту
+import {cloudinaryService} from '@/backend/service/cloudinary.service';
 
-// Disable body parsing to handle raw requests
-export const config = {
-	api: {
-		bodyParser: false,
-	},
-};
-
+// export const segmentConfig = {
+// 	api: {
+// 		bodyParser: false,
+// 	},
+// };
 
 export async function DELETE(req: Request): Promise<NextResponse> {
 	try {

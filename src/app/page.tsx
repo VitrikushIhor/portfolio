@@ -7,6 +7,7 @@ export default async function Home() {
 
 	const response = await getResponse();
 	return (
-		 <Wrapper data={response}/>
+		 // <Wrapper data={response}/>
+		 <div>123</div>
 	);
 }
