@@ -7,6 +7,7 @@ const Skills: FC<{ skills: InterfaceSkillCategory[] }> = ({skills}) => {
 	const startYear = 2021;
 	const [yearsProgramming, setYearsProgramming] = useState<number>(0);
 
+
 	useEffect(() => {
 		const currentYear = new Date().getFullYear();
 		const years = currentYear - startYear;

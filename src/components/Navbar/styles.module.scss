@@ -159,11 +159,8 @@
 	text-decoration: none;
 
 	&:hover {
-		color: var(--text_primary);
+		color: var(--primary);
 	}
 
-	&:active {
-		border-bottom: 2px solid var(--primary);
-	}
 }
 

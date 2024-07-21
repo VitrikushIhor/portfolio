@@ -1,4 +1,5 @@
 import mongoose, {Document, Schema} from 'mongoose';
+import Role from '@/backend/models/role/roleModel';
 
 interface IBio extends Document {
 	name: string;
@@ -12,7 +13,7 @@ interface IBio extends Document {
 
 const BioSchema: Schema = new Schema({
 	name: {type: String, required: true},
-	roles: [{type: Schema.Types.ObjectId, ref: 'Role'}],
+	roles: [{type: Schema.Types.ObjectId, ref: Role}],
 	description: {type: String, required: true},
 	github: {type: String, required: true},
 	resume: {type: String, required: true},

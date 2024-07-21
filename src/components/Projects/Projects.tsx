@@ -1,12 +1,12 @@
 import {FC, useState} from 'react'
 import styles from './styles.module.scss'
 import ProjectCard from '@/components/Cards/ProjectCards/ProjectCards';
-import {AppComponent} from '@/components/Wrapper/Wrapper';
+import {IOpenModal} from '@/components/Wrapper/Wrapper';
 import {InterfaceProject} from '@/types/project.interface';
 
 interface InterfaceProjects {
-	openModal: AppComponent
-	setOpenModal: (openModal: AppComponent) => void
+	openModal: IOpenModal
+	setOpenModal: (openModal: IOpenModal) => void
 	projects: InterfaceProject[]
 }
 

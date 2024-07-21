@@ -20,8 +20,7 @@ const HeroSection: FC<{ bio: InterfaceBio }> = ({bio}) => {
 							 <span className={styles.Span}>
 								 <Typewriter
 									  options={{
-										  // @ts-ignore
-										  strings: bio?.roles,
+										  strings: bio?.roles?.map(role => role.name),
 										  autoStart: true,
 										  loop: true,
 									  }}

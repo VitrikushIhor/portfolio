@@ -11,13 +11,11 @@ import {useGetSkillCategoryQuery} from '@/app/dashboard/(pages)/skillCategory/ap
 import {useRemoveSkillCategoryMutation} from '@/app/dashboard/(pages)/skillCategory/api/deleteSkillCategory';
 import SkillCategoryModal from '@/app/dashboard/(pages)/skillCategory/ui/skillCategoryModal/skillCategoryModal';
 import SkillModal from '@/app/dashboard/(pages)/skillCategory/ui/skillModal/SkillModal';
+import {InterfaceSkillCategory} from '@/types/skillCategory.interface';
 
 export default function Skills() {
 	const {data, isLoading, isError} = useGetSkillCategoryQuery()
-	const [open, setOpen] = useState<boolean>(false)
 	const [createSkill, setCreateSkill] = useState(false)
-	const [removeSkillCategory] = useRemoveSkillCategoryMutation()
-
 
 	if (isLoading) {
 		return <div>Loading...</div>
@@ -33,37 +31,47 @@ export default function Skills() {
 				 <h2>SkillCategory</h2>
 				 <IoMdAdd onClick={() => setCreateSkill(!createSkill)} className={styles.img}/>
 			 </div>
-			 {data?.map(item => (
-					<div key={item._id} className={styles.wrapper}>
-						<div className={styles.titleWrapper}>
-							<div onClick={() => setOpen(!open)} className={styles.title}>
-								<div>{item.title}</div>
-								<IoIosArrowDown className={styles.img}/>
-							</div>
-							<CiCircleRemove onClick={() => {
-								const sure = confirm('Ти точно хочеш видилити категорію?');
-								if (sure) {
-									removeSkillCategory(item._id)
-								} else {
-									return
-								}
-							}} className={styles.actions__image}/>
-						</div>
-						{open &&
-							 <div className={styles.mainWrapper}>
-								 <div className={styles.headContainer}>
-									 <div className={styles.headContainer__name}>Name</div>
-									 <div className={styles.headContainer__image}>Image</div>
-									 <div className={styles.headContainer__actions}>Actions</div>
-								 </div>
-								 <div className={styles.skillsContainer}>
-									 {item.skills.map((skill, index) => (
-											<Skill key={index} skill={skill}/>
-									 ))}
-								 </div>
-							 </div>}
-					</div>
+			 {data?.map((item, i) => (
+					<SkillWrapper key={i} item={item}/>
 			 ))}
+		 </div>
+	)
+}
+
+function SkillWrapper(props: { item: InterfaceSkillCategory }) {
+	const {item} = props
+	let [isOpen, setIsOpen] = useState(false)
+	const [removeSkillCategory] = useRemoveSkillCategoryMutation()
+
+	return (
+		 <div key={item._id} className={styles.wrapper}>
+			 <div className={styles.titleWrapper}>
+				 <div onClick={() => setIsOpen(!isOpen)} className={styles.title}>
+					 <div>{item.title}</div>
+					 <IoIosArrowDown className={styles.img}/>
+				 </div>
+				 <CiCircleRemove onClick={() => {
+					 const sure = confirm('Ти точно хочеш видилити категорію?');
+					 if (sure) {
+						 removeSkillCategory(item._id)
+					 } else {
+						 return
+					 }
+				 }} className={styles.actions__image}/>
+			 </div>
+			 {isOpen &&
+					<div className={styles.mainWrapper}>
+						<div className={styles.headContainer}>
+							<div className={styles.headContainer__name}>Name</div>
+							<div className={styles.headContainer__image}>Image</div>
+							<div className={styles.headContainer__actions}>Actions</div>
+						</div>
+						<div className={styles.skillsContainer}>
+							{item.skills.map((skill, index) => (
+								 <Skill key={index} skill={skill}/>
+							))}
+						</div>
+					</div>}
 		 </div>
 	)
 }

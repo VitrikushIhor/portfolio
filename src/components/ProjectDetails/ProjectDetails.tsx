@@ -1,36 +1,57 @@
 // import {CloseRounded} from '@mui/icons-material';
 // import {Modal} from '@mui/material';
 import styles from './styles.module.scss'
-import {AwaitedReactNode, FC, JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal} from 'react';
 import Image from 'next/image';
-import {AppComponent} from '@/components/Wrapper/Wrapper';
+import {IOpenModal} from '@/components/Wrapper/Wrapper';
+import {FC} from 'react';
+import {Dialog, DialogPanel} from '@headlessui/react';
+import {IoClose} from 'react-icons/io5';
+import {Autoplay, FreeMode, Navigation, Pagination, Thumbs} from 'swiper/modules';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/thumbs';
+import 'swiper/css/pagination';
 
 interface InterfaceProjectDetails {
-	openModal: AppComponent
-	setOpenModal: (openModal: AppComponent) => void
+	openModal: IOpenModal
+	setOpenModal: (openModal: IOpenModal) => void
 }
 
 const ProjectDetails: FC<InterfaceProjectDetails> = ({openModal, setOpenModal}) => {
 	const project = openModal?.project;
 	return (
-		 // <Modal open={true} onClose={() => setOpenModal({state: false, project: null})}>
-		 <div className={styles.Container}>
-			 <div className={styles.Wrapper}>
-				 {/*<CloseRounded*/}
-				 {/*	style={{*/}
-				 {/*		position: 'absolute',*/}
-				 {/*		top: '10px',*/}
-				 {/*		right: '20px',*/}
-				 {/*		cursor: 'pointer',*/}
-				 {/*	}}*/}
-				 {/*	onClick={() => setOpenModal({state: false, project: null})}*/}
-				 {/*/>*/}
-				 <Image width={100} height={100} className={styles.Image} src={`${project?.image}`}
-				        alt={`${project?.title}`}/>
+		 <Dialog open={true} onClose={() => setOpenModal({state: false, project: null})} className={styles.Container}>
+			 <DialogPanel className={styles.Wrapper}>
+				 <IoClose
+						className={styles.close}
+						onClick={() => setOpenModal({state: false, project: null})}
+				 />
+				 <Swiper
+						pagination={{
+							clickable: true,
+							bulletActiveClass: `${styles.swiperPaginationBulletActive}`,
+							bulletClass: `${styles.swiperPaginationBullet}`,
+							horizontalClass: `${styles.horizontalClass}`,
+						}}
+						modules={[Pagination]}
+						autoplay={{
+							delay: 1500,
+							disableOnInteraction: false,
+						}}
+						className={styles.swiper}
+				 >
+					 {project?.images.map((img, key) => (
+							<SwiperSlide key={key} className={styles.slide}>
+								<img className={styles.Image} src={img} alt=""/>
+							</SwiperSlide>
+					 ))}
+				 </Swiper>
+
 				 <div className={styles.Title}>{project?.title}</div>
-				 <div className={styles.Date}>{project?.date}</div>
+				 <div className={styles.Date}>{project?.dateStart} - {project?.dateEnd}</div>
 				 <div className={styles.Tags}>
-					 {project?.tags.map((tag: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined, index: Key | null | undefined) => (
+					 {project?.tags.map((tag: any, index) => (
 							<div key={index} className={styles.Tag}>{tag}</div>
 					 ))}
 				 </div>
@@ -39,11 +60,10 @@ const ProjectDetails: FC<InterfaceProjectDetails> = ({openModal, setOpenModal}) 
 					 <a className={styles.Button} href={project?.github} target="new">View Code</a>
 					 {project?.webapp && <a className={styles.Button} href={project?.webapp} target="new">View Live App</a>}
 				 </div>
-			 </div>
-		 </div>
-
-		 // </Modal>
+			 </DialogPanel>
+		 </Dialog>
 	)
 }
 
 export default ProjectDetails
+
