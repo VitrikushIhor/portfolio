@@ -5,6 +5,7 @@ import Image from 'next/image';
 import ExperienceCard from '@/components/Cards/ExperienceCard/ExperienceCard';
 
 const Experience: FC<{ experiences: InterfaceExperience[] }> = ({experiences}) => {
+	console.log(experiences)
 	return (
 		 <div className={styles.container} id="experience">
 			 <div className={styles.Wrapper}>
@@ -13,7 +14,6 @@ const Experience: FC<{ experiences: InterfaceExperience[] }> = ({experiences}) =
 					 My work experience as a software engineer and working on different companies and projects.
 				 </div>
 				 <div className={styles.TimelineSection}>
-
 					 <div className={styles.timeline}>
 						 {experiences?.map((experience, index) => (
 								<div key={index} className={styles.timelineContainer}>
@@ -24,7 +24,6 @@ const Experience: FC<{ experiences: InterfaceExperience[] }> = ({experiences}) =
 						 ))}
 
 					 </div>
-
 				 </div>
 			 </div>
 		 </div>

@@ -1,8 +1,6 @@
 import {useRef, useState} from 'react';
 import emailjs from '@emailjs/browser';
-// import {Alert, Snackbar} from '@mui/material';
 import styles from './styles.module.scss'
-
 
 const Contact = () => {
 	const [open, setOpen] = useState(false);
@@ -15,6 +13,10 @@ const Contact = () => {
 				 .then((result) => {
 					 setOpen(true);
 					 form?.current?.reset();
+
+					 setTimeout(() => {
+						 setOpen(false)
+					 }, 1000)
 				 }, (error) => {
 					 console.log(error.text);
 				 });
@@ -29,22 +31,15 @@ const Contact = () => {
 			</div>
 			<form className={styles.contactFrom} ref={form} onSubmit={handleSubmit}>
 				<div className={styles.contactTitle}>Email Me 🚀</div>
+				{open &&
+					 <div className={styles.message}>Email sent successfully</div>}
 				<input className={styles.contactInput} placeholder="Your Email" name="from_email"/>
 				<input className={styles.contactInput} placeholder="Your Name" name="from_name"/>
 				<input className={styles.contactInput} placeholder="Subject" name="subject"/>
 				<textarea className={styles.contactInputMessage} placeholder="Message" rows={4} name="message"/>
 				<input className={styles.contactButton} type="submit" value="Send"/>
 			</form>
-			{/*<Snackbar open={open} autoHideDuration={6000} onClose={() => setOpen(false)}>*/}
-			{/*	<Alert*/}
-			{/*		 onClose={() => setOpen(false)}*/}
-			{/*		 severity="success"*/}
-			{/*		 variant="filled"*/}
-			{/*		 sx={{width: '100%'}}*/}
-			{/*	>*/}
-			{/*		Email sent successfully!*/}
-			{/*	</Alert>*/}
-			{/*</Snackbar>*/}
+
 		</div>
 	</div>);
 };

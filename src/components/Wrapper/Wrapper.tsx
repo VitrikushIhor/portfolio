@@ -10,35 +10,33 @@ import Footer from '@/components/Footer/Footer';
 import ProjectDetails from '@/components/ProjectDetails/ProjectDetails';
 import {useState} from 'react';
 import {InterfaceProject} from '@/types/project.interface';
-import {InterfaceProjectData} from '@/data/constants';
+import {IResponse} from '@/data/constants';
 
-export interface AppComponent {
+export interface IOpenModal {
 	project: InterfaceProject | null
 	state: boolean
 }
 
-interface Interfacedata {
-	data: InterfaceProjectData
-}
 
-export default function Wrapper({data}: Interfacedata) {
-	const [openModal, setOpenModal] = useState<AppComponent>({state: false, project: null});
+export default function Wrapper(props: { data: IResponse }) {
+	const {data} = props
+	const [openModal, setOpenModal] = useState<IOpenModal>({state: false, project: null});
 
 
 	return (
 		 <>
-			 <Navbar bio={data?.Bio}/>
+			 <Navbar bio={data?.bio[0]}/>
 			 <main className={styles.body}>
-				 <HeroSection bio={data?.Bio}/>
+				 <HeroSection bio={data?.bio[0]}/>
 				 <div className={styles.wrapper}>
-					 <Skills skills={data.skills}/>
-					 <Experience experiences={data.experiences}/>
+					 <Skills skills={data.skillCategory}/>
+					 <Experience experiences={data.experience}/>
 				 </div>
 				 <Projects projects={data.projects} openModal={openModal} setOpenModal={setOpenModal}/>
 				 <div className={styles.wrapper}>
 					 <Contact/>
 				 </div>
-				 <Footer bio={data?.Bio}/>
+				 <Footer bio={data?.bio[0]}/>
 				 {openModal.state &&
 						<ProjectDetails openModal={openModal} setOpenModal={setOpenModal}/>
 				 }

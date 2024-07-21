@@ -12,7 +12,7 @@ const ExperienceCard: FC<{ experience: InterfaceExperience }> = ({experience}) =
 				 <div className={styles.body}>
 					 <div className={styles.role}>{experience?.role}</div>
 					 <div className={styles.company}>{experience?.company}</div>
-					 <div className={styles.date}>{experience?.date}</div>
+					 <div className={styles.date}>{experience?.dateStart} - {experience.dateEnd}</div>
 				 </div>
 			 </div>
 			 <div className={styles.description}>

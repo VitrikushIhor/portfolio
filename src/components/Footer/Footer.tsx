@@ -1,10 +1,7 @@
-// import LinkedInIcon from '@mui/icons-material/LinkedIn';
-// import InstagramIcon from '@mui/icons-material/Instagram';
-// import {Telegram} from '@mui/icons-material';
-
 import styles from './styles.module.scss'
 import {FC} from 'react';
 import {InterfaceBio} from '@/types/bio.interface';
+import {FaLinkedin, FaTelegramPlane} from 'react-icons/fa';
 
 const Footer: FC<{ bio: InterfaceBio }> = ({bio}) => {
 	const currentYear = new Date().getFullYear();
@@ -18,9 +15,8 @@ const Footer: FC<{ bio: InterfaceBio }> = ({bio}) => {
 					 <a className={styles.NavLink} href="#projects">Projects</a>
 				 </nav>
 				 <div className={styles.SocialMediaIcons}>
-					 {/*<a className={styles.SocialMediaIcon} href={bio?.telegram} target="display"><Telegram/></a>*/}
-					 {/*<a className={styles.SocialMediaIcon} href={bio?.linkedin} target="display"><LinkedInIcon/></a>*/}
-					 {/*<a className={styles.SocialMediaIcon} href={bio?.insta} target="display"><InstagramIcon/></a>*/}
+					 <a className={styles.SocialMediaIcon} href={bio?.telegram} target="display"><FaTelegramPlane/></a>
+					 <a className={styles.SocialMediaIcon} href={bio?.linkedin} target="display"><FaLinkedin/></a>
 				 </div>
 				 <p className={styles.Copyright}>
 					 &copy; {currentYear} Ihor Vitrikush. All rights reserved.

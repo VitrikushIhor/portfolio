@@ -19,6 +19,7 @@
     "react-redux": "^9.1.2",
     "react-scroll": "^1.8.7",
     "sass": "^1.77.6",
+    "swiper": "^11.1.5",
     "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
