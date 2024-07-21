@@ -4,15 +4,17 @@ import styles from './styles.module.scss';
 import React, {useState} from 'react';
 import {CiCircleRemove} from 'react-icons/ci';
 import {MdEdit} from 'react-icons/md';
-import {useGetSkillsQuery} from '@/app/dashboard/(pages)/skills/api/getSkills';
 import {useRemoveSkillMutation} from '@/app/dashboard/(pages)/skills/api/deleteSkill';
 import {InterfaceSkill} from '@/types/skill.interface';
-import SkillModal from '@/app/dashboard/(pages)/skills/ui/skillModal/SkillModal';
-import {IoIosArrowDown, IoMdAdd} from 'react-icons/io';
+import {IoMdAdd} from 'react-icons/io';
+import {useGetSkillsQuery} from '@/app/dashboard/(pages)/skills/api/getSkills';
+import SkillModal from '@/app/dashboard/(pages)/skillCategory/ui/skillModal/SkillModal';
+import SkillModalCreate from '@/app/dashboard/(pages)/skills/ui/skillModalCreate/skillModalCreate';
 
 export default function Skills() {
 	const {data, isLoading, isError} = useGetSkillsQuery()
-	const [open, setOpen] = useState<boolean>(false)
+
+	const [open, setOpen] = useState(false)
 
 
 	if (isLoading) {
@@ -24,32 +26,16 @@ export default function Skills() {
 	}
 	return (
 		 <div className={styles.container}>
-
+			 <SkillModalCreate isOpen={open} setIsOpen={setOpen}/>
 			 <div className={styles.headerContainer}>
-				 <h2>SkillCategory</h2>
-				 <IoMdAdd className={styles.img}/>
+				 <h2>Skills</h2>
+				 <IoMdAdd onClick={() => setOpen(!open)} className={styles.img}/>
 			 </div>
-			 {data?.map(item => (
-					<div className={styles.wrapper}>
-						<div onClick={() => setOpen(!open)} className={styles.title}>
-							<div>{item.title}</div>
-							<IoIosArrowDown className={styles.img}/>
-						</div>
-						{open &&
-							 <div className={styles.mainWrapper}>
-								 <div className={styles.headContainer}>
-									 <div className={styles.headContainer__name}>Name</div>
-									 <div className={styles.headContainer__image}>Image</div>
-									 <div className={styles.headContainer__actions}>Actions</div>
-								 </div>
-								 <div className={styles.skillsContainer}>
-									 {item.skills.map(skill => (
-											<Skill skill={skill}/>
-									 ))}
-								 </div>
-							 </div>}
-					</div>
-			 ))}
+			 <div className={styles.skillsContainer}>
+				 {data?.map(skill => (
+						<Skill skill={skill}/>
+				 ))}
+			 </div>
 		 </div>
 	)
 }
@@ -72,6 +58,4 @@ function Skill(props: { skill: InterfaceSkill }) {
 		 </div>
 	)
 }
-
-
 

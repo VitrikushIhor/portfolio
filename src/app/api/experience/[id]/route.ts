@@ -1,19 +1,20 @@
 import {NextResponse} from 'next/server';
-import {cloudinaryService} from '@/backend/service/cloudinary.service';
-import Experience from '@/backend/models/expirience/expirienceModel';
 import connectDB from '@/backend/config/database';
-import SkillCategory from '@/backend/models/skillCategory/skillCategoryModel';
+import Experience from '@/backend/models/expirience/expirienceModel';
+import {cloudinaryService} from '@/backend/service/cloudinary.service';
 
-// Disable body parsing to handle raw requests
 export const config = {
 	api: {
 		bodyParser: false,
 	},
 };
 
-export async function POST(req: Request): Promise<NextResponse> {
-	await connectDB();
+export async function PATCH(req: Request): Promise<NextResponse> {
 	try {
+		await connectDB();
+		const {pathname} = new URL(req.url);
+		const id = pathname.split('/').pop();
+
 		const formData = await req.formData();
 
 		const img = formData.get('img') as File;
@@ -38,8 +39,7 @@ export async function POST(req: Request): Promise<NextResponse> {
 			 img.name,
 		);
 
-
-		const exp = await Experience.create({
+		const exp = await Experience.findByIdAndUpdate(id, {
 			img: uploadResult.secure_url,
 			role,
 			company,
@@ -48,28 +48,40 @@ export async function POST(req: Request): Promise<NextResponse> {
 			dateEnd,
 			desc,
 			skills: skills.split(','),
-		});
+		}, {new: true});
+
+
+		if (!exp) {
+			return NextResponse.json({error: 'Experience not found'}, {status: 404});
+		}
 
 		return NextResponse.json(exp, {status: 200});
+
+
 	} catch (err) {
 		console.error(err);
 		return NextResponse.json({error: 'Internal Server Error'}, {status: 500});
 	}
 }
 
+export async function DELETE(req: Request) {
+	await connectDB();
 
-export async function GET(): Promise<NextResponse> {
+	const {pathname} = new URL(req.url);
+	const id = pathname.split('/').pop(); // Отримуємо id з URL
+
+	if (!id) {
+		return NextResponse.json({error: 'ID is required'}, {status: 400});
+	}
+
 	try {
-		await connectDB();
-
-		const experience = await Experience.find({})
-
-
-		return NextResponse.json(experience);
-
-
-	} catch (err) {
-		console.error(err);
+		const experience = await Experience.findOneAndDelete({_id: id});
+		if (!experience) {
+			return NextResponse.json({error: 'experience not found'}, {status: 404});
+		}
+		return NextResponse.json({message: 'experience deleted successfully'}, {status: 200});
+	} catch (error) {
+		console.error(error);
 		return NextResponse.json({error: 'Internal Server Error'}, {status: 500});
 	}
 }

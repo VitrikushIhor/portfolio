@@ -1,11 +1,11 @@
 import {rtkApi} from '@/service/rtkApi';
-import {InterfaceSkill} from '@/types/skill.interface';
+import {InterfaceSkillCategory} from '@/types/skillCategory.interface';
 
-const getSkillsApi = rtkApi.injectEndpoints({
+const getSkillCategoryApi = rtkApi.injectEndpoints({
 	endpoints: (build) => ({
-		getSkills: build.query<InterfaceSkill[], void>({
+		getSkillCategory: build.query<InterfaceSkillCategory[], void>({
 			query: () => ({
-				url: '/skillCategory/skill',
+				url: '/skillCategory',
 			}),
 			providesTags: (result) =>
 				 result
@@ -18,4 +18,4 @@ const getSkillsApi = rtkApi.injectEndpoints({
 	}),
 });
 
-export const {useGetSkillsQuery} = getSkillsApi;
+export const {useGetSkillCategoryQuery} = getSkillCategoryApi;

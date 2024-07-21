@@ -8,4 +8,15 @@ export interface InterfaceProject {
 	category: string;
 	github?: string;
 	webapp?: string;
+
+	// видалити потім ці поля
+	//image
+	// date
+	// id
+
+	_id: string;
+	previewImage: string
+	images: string[]
+	dateEnd: string
+	dateStart: string
 }

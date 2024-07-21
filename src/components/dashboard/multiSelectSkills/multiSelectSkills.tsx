@@ -1,28 +1,28 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {InterfaceBioRoles} from '@/types/bio.interface';
 import styles from './styles.module.scss'
 import {IoIosArrowDown, IoMdClose} from 'react-icons/io';
+import {InterfaceSkill} from '@/types/skill.interface';
 
 
 interface InterfaceMultiSelect {
 	placeHolder: string;
-	options: InterfaceBioRoles[];
+	options: InterfaceSkill[];
 	isMulti: boolean;
 	isSearchable: boolean;
-	onChange: (value: InterfaceBioRoles | InterfaceBioRoles[]) => void;
-	defaultValue?: InterfaceBioRoles | InterfaceBioRoles[];
+	onChange: (value: InterfaceSkill | InterfaceSkill[]) => void;
+	defaultValue?: InterfaceSkill | InterfaceSkill[];
 }
 
-const  MultiSelect: React.FC<InterfaceMultiSelect> = ({
-	                                                     placeHolder,
-	                                                     options,
-	                                                     isMulti,
-	                                                     isSearchable,
-	                                                     onChange,
-	                                                     defaultValue,
-                                                     }) => {
+const MultiSelectSkills: React.FC<InterfaceMultiSelect> = ({
+	                                                           placeHolder,
+	                                                           options,
+	                                                           isMulti,
+	                                                           isSearchable,
+	                                                           onChange,
+	                                                           defaultValue,
+                                                           }) => {
 	const [showMenu, setShowMenu] = useState(false);
-	const [selectedValue, setSelectedValue] = useState<InterfaceBioRoles | InterfaceBioRoles[] | null>(defaultValue || (isMulti ? [] : null));
+	const [selectedValue, setSelectedValue] = useState<InterfaceSkill | InterfaceSkill[] | null>(defaultValue || (isMulti ? [] : null));
 	const [searchValue, setSearchValue] = useState('');
 	const searchRef = useRef<HTMLInputElement | null>(null);
 	const inputRef = useRef<HTMLDivElement | null>(null);
@@ -69,21 +69,21 @@ const  MultiSelect: React.FC<InterfaceMultiSelect> = ({
 				 </div>
 			);
 		}
-		return (selectedValue as InterfaceBioRoles).name;
+		return (selectedValue as InterfaceSkill).name;
 	};
 
-	const removeOption = (option: InterfaceBioRoles) => {
-		return (selectedValue as InterfaceBioRoles[]).filter((o) => o._id !== option._id);
+	const removeOption = (option: InterfaceSkill) => {
+		return (selectedValue as InterfaceSkill[]).filter((o) => o._id !== option._id);
 	};
 
-	const onTagRemove = (e: React.MouseEvent, option: InterfaceBioRoles) => {
+	const onTagRemove = (e: React.MouseEvent, option: InterfaceSkill) => {
 		e.stopPropagation();
 		const newValue = removeOption(option);
 		setSelectedValue(newValue);
 		onChange(newValue);
 	};
 
-	const onItemClick = (option: InterfaceBioRoles) => {
+	const onItemClick = (option: InterfaceSkill) => {
 		let newValue;
 		if (isMulti && Array.isArray(selectedValue)) {
 			if (selectedValue.findIndex((o) => o._id === option._id) >= 0) {
@@ -98,7 +98,7 @@ const  MultiSelect: React.FC<InterfaceMultiSelect> = ({
 		onChange(newValue);
 	};
 
-	const isSelected = (option: InterfaceBioRoles) => {
+	const isSelected = (option: InterfaceSkill) => {
 		if (isMulti && Array.isArray(selectedValue)) {
 			return selectedValue.filter((o) => o._id === option._id).length > 0;
 		}
@@ -107,7 +107,7 @@ const  MultiSelect: React.FC<InterfaceMultiSelect> = ({
 			return false;
 		}
 
-		return (selectedValue as InterfaceBioRoles)._id === option._id;
+		return (selectedValue as InterfaceSkill)._id === option._id;
 	};
 
 	const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -158,4 +158,4 @@ const  MultiSelect: React.FC<InterfaceMultiSelect> = ({
 		 ;
 };
 
-export default MultiSelect;
+export default MultiSelectSkills;

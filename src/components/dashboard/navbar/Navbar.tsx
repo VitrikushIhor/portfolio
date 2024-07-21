@@ -6,6 +6,7 @@ import {usePathname} from 'next/navigation';
 
 const pages = [
 	{name: 'Bio', link: '/dashboard/bio'},
+	{name: 'skillCategory', link: '/dashboard/skillCategory'},
 	{name: 'Skills', link: '/dashboard/skills'},
 	{name: 'Experience', link: '/dashboard/experience'},
 	{name: 'Projects', link: '/dashboard/projects'},
@@ -13,6 +14,7 @@ const pages = [
 
 function Navbar() {
 	const pathname = usePathname()
+
 	return (
 		 <nav className={styles.nav}>
 			 <div className={styles.mainContainer}>
