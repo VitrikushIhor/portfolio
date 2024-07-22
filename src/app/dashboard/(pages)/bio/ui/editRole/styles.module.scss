@@ -1,0 +1,35 @@
+.editContainer {
+	width: 400px;
+	border: 1px solid var(--primary);
+	box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
+	border-radius: 3px;
+	padding: 10px;
+
+
+}
+
+.editTitle {
+	display: flex;
+	justify-content: center;
+	color: var(--white);
+	font-size: 18px;
+	margin-bottom: 30px;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.inputContainer {
+		display: flex;
+		gap: 20px;
+		margin-bottom: 20px;
+	}
+
+	.formButton {
+		padding-left: 30px;
+		padding-right: 30px;
+		margin-top: 10px;
+	}
+}

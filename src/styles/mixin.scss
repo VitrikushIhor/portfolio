@@ -1,0 +1,25 @@
+@import "media";
+
+@mixin media640 {
+	@media screen and (max-width: $media-sm) {
+		@content;
+	}
+}
+
+@mixin media768 {
+	@media screen and (max-width: $media-md) {
+		@content;
+	}
+}
+
+@mixin media1024 {
+	@media screen and (max-width: $media-lg) {
+		@content;
+	}
+}
+
+@mixin media1280 {
+	@media screen and (max-width: $media-xl) {
+		@content;
+	}
+}

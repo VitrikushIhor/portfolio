@@ -1,0 +1,24 @@
+.button {
+	padding: 10px 17px;
+	border-radius: 10px;
+	font-size: 15px;
+	background-color: transparent;
+	outline: none;
+	border: 1px solid #306EE8;
+	box-shadow: -1px 3px 21px -1px rgba(23, 92, 230, 0.15);
+	color: var(--primary);
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+	text-align: center;
+
+	&:disabled {
+		opacity: 0.5;
+		user-select: none;
+		pointer-events: none;
+	}
+
+	&:hover {
+		color: #306EE8;
+		border: 1px solid var(--primary);
+	}
+}

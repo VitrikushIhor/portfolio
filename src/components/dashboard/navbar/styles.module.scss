@@ -1,0 +1,43 @@
+.nav {
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	background-color: var(--bg);
+	gap: 20px;
+	border-bottom: 0.1px solid var(--primary);
+	box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
+}
+
+.mainContainer {
+	display: flex;
+	gap: 20px;
+
+}
+
+.link {
+	list-style: none;
+	transition: all 0.3s ease-in-out;
+
+	a {
+		border-radius: 5px;
+		color: var(--text_primary);
+		text-decoration: none;
+		padding: 5px 10px;
+
+		&.active {
+			background-color: var(--primary20);
+			color: var(--primary);
+		}
+
+		&:hover {
+			color: #CF8FFF;
+		}
+	}
+}
+
+.linksContainer {
+	display: flex;
+	gap: 20px;
+
+}
+
