@@ -1,8 +1,11 @@
+import Wrapper from "@/components/Wrapper/Wrapper";
+import {fetchDataCart} from "@/service/rtkApi";
+
 export default async function Home() {
 
-	// const data = await fetchDataCart('/getInfo')
+	const data = await fetchDataCart('/getInfo')
+	console.log(data)
 	return (
-		<div>123</div>
-		 // <Wrapper data={data}/>
+		 <Wrapper data={data}/>
 	);
 }
