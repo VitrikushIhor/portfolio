@@ -1,15 +1,12 @@
-// import {CloseRounded} from '@mui/icons-material';
-// import {Modal} from '@mui/material';
+'use client'
 import styles from './styles.module.scss'
-import Image from 'next/image';
 import {IOpenModal} from '@/components/Wrapper/Wrapper';
 import {FC} from 'react';
 import {Dialog, DialogPanel} from '@headlessui/react';
 import {IoClose} from 'react-icons/io5';
-import {Autoplay, FreeMode, Navigation, Pagination, Thumbs} from 'swiper/modules';
+import {Autoplay, Pagination} from 'swiper/modules';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/free-mode';
 import 'swiper/css/thumbs';
 import 'swiper/css/pagination';
 
@@ -34,11 +31,11 @@ const ProjectDetails: FC<InterfaceProjectDetails> = ({openModal, setOpenModal}) 
 							bulletClass: `${styles.swiperPaginationBullet}`,
 							horizontalClass: `${styles.horizontalClass}`,
 						}}
-						modules={[Pagination]}
 						autoplay={{
 							delay: 1500,
 							disableOnInteraction: false,
 						}}
+						modules={[Autoplay, Pagination]}
 						className={styles.swiper}
 				 >
 					 {project?.images.map((img, key) => (
