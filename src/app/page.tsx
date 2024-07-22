@@ -6,8 +6,9 @@ import {fetchDataCart} from '@/service/rtkApi';
 
 export default async function Home() {
 
-	const data = await fetchDataCart('/getInfo')
+	// const data = await fetchDataCart('/getInfo')
 	return (
-		 <Wrapper data={data}/>
+		<div>123</div>
+		 // <Wrapper data={data}/>
 	);
 }
